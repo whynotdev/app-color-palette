@@ -1,0 +1,29 @@
+<div class="palette-container">
+  <h2>Color Palette Generator</h2>
+
+  <!-- Input to change the number of colors -->
+  <div class="input-container">
+    <label for="colorCount">Number of Colors:</label>
+    <input
+      id="colorCount"
+      type="number"
+      [(ngModel)]="numberOfColors"
+      (change)="updatePaletteSize($event)"
+      min="1"
+      max="10"
+      />
+  </div>
+
+  <!-- Display the generated color palette -->
+  <div class="palette">
+    <div
+      *ngFor="let color of palette"
+      class="color-box"
+      [ngStyle]="{ 'background-color': color }">
+      <p>{{ color }}</p>
+    </div>
+  </div>
+
+  <!-- Button to generate a new random palette -->
+  <button (click)="generatePalette()">Generate New Palette</button>
+</div>
